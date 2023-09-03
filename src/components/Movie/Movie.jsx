@@ -21,13 +21,16 @@ const Movie = () => {
   const {movieId} = useParams()
   const [currentMovie, setCurrentMovie] = useState({})
 
-  async function getMovieDetails(){
-    const res = await axios.get(`movie/${movieId}`)
-    console.log(res.data)
-    return res.data
-  }
+  
 
   useEffect(() => {
+
+    const getMovieDetails = async () => {
+      const res = await axios.get(`movie/${movieId}`)
+      console.log(res.data)
+      return res.data
+    }
+
     getMovieDetails().then(res => {setCurrentMovie(res)
     })
   },[])

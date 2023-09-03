@@ -24,13 +24,16 @@ const StyledCastMember = styled.li`
 const Cast = () => {
   const {movieId} = useParams()
   const [content, setContent] = useState([])
-   async function fetchCast(){
-    const res = await axios.get(`/movie/${movieId}/credits`)
-    console.log(res.data.cast)
-    return res.data.cast
-  }
+   
 
   useEffect(()=>{
+
+     const fetchCast = async() =>{
+      const res = await axios.get(`/movie/${movieId}/credits`)
+      console.log(res.data.cast)
+      return res.data.cast
+    }
+
     fetchCast().then(res => setContent(res))
   }, [])
 

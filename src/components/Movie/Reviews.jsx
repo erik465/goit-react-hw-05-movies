@@ -10,17 +10,20 @@ const Reviews = () => {
   const {movieId} = useParams()
   const [content, setContent] = useState([])
 
-  async function fetchReviews(){
-    const res = await axios.get(`/movie/${movieId}/reviews`)
-    console.log(res.data.results)
-    return res.data.results
-  }
+  
 
   useEffect(()=>{
+
+     const fetchReviews =  async() => {
+      const res = await axios.get(`/movie/${movieId}/reviews`)
+      console.log(res.data.results)
+      return res.data.results
+    }
+
     fetchReviews().then(res => setContent(res))
   }, [])
 
-  
+
   return (
     <div>
       <h2>Reviews</h2>
