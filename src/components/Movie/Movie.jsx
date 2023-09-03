@@ -33,7 +33,7 @@ const Movie = () => {
 
     getMovieDetails().then(res => {setCurrentMovie(res)
     })
-  },[])
+  },[movieId])
 
   return (
     <div>

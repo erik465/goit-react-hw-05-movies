@@ -35,7 +35,7 @@ const Cast = () => {
     }
 
     fetchCast().then(res => setContent(res))
-  }, [])
+  }, [movieId])
 
 
   return (

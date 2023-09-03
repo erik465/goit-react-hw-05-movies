@@ -21,7 +21,7 @@ const Reviews = () => {
     }
 
     fetchReviews().then(res => setContent(res))
-  }, [])
+  }, [movieId])
 
 
   return (
