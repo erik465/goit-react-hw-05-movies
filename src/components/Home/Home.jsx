@@ -1,24 +1,44 @@
 import React, {useState, useEffect, Suspense} from 'react'
 import axios from 'axios'
-import MoviesList from 'components/MoviesList/MoviesList';
+import { StyledHome } from './Home.styled'
 
-axios.defaults.baseURL = 'https://api.example.com';
-axios.defaults.headers['X-API-KEY'] = '3942559e2bacbdaf439109de04bbffec';
+import { Link } from 'react-router-dom'
+
+axios.defaults.baseURL = 'https://api.themoviedb.org/3'
+axios.defaults.headers.common = {'Authorization': `bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTQyNTU5ZTJiYWNiZGFmNDM5MTA5ZGUwNGJiZmZlYyIsInN1YiI6IjY0ZjQ1ZGM1OWU0NTg2MDExZGU2OTAyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-wH1Q4duwruYZ20I3KeAqsuiKf4R39syfbHVwVM9DM`}
 
 const Home = () => {
-  const [movies, getMovies] = useState([])
-  useEffect(async () => {
-    const res = await axios.get(`/trending/get-trending`)
-    const data = await res.json()
-    console.log(data)
+  const [movies, setMovies] = useState([])
+
+  const fetchTrending = async () => {
+    const res =  await axios.get(`/trending/movie/day?api-key=3942559e2bacbdaf439109de04`)
+    const data = await res.data
+    return data.results
+  }
+
+  useEffect(() => {
+    fetchTrending().then(res => setMovies(res))
+    console.log(movies)
   }, [])
 
   return (
-    <div>
+    <StyledHome>
+      <h3>Trending Movies</h3>
       <Suspense>
-        <MoviesList />
+        <ul>
+          {movies !== null ? movies.map(movie => {
+            return (
+            <Link key={movie.id} to={`/movies/${movie.id}`}>  
+            <li >
+                <p>{movie.title}</p>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+            </li>
+            </Link>
+            )
+          }) : <p>No movies found</p>}
+        </ul>
       </Suspense>
-    </div>
+    </StyledHome>
   )
 }
 
