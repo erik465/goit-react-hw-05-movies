@@ -9,6 +9,7 @@ axios.defaults.headers.common = {'Authorization': `bearer eyJhbGciOiJIUzI1NiJ9.e
 const Reviews = () => {
   const {movieId} = useParams()
   const [content, setContent] = useState([])
+
   async function fetchReviews(){
     const res = await axios.get(`/movie/${movieId}/reviews`)
     console.log(res.data.results)
@@ -16,9 +17,10 @@ const Reviews = () => {
   }
 
   useEffect(()=>{
-    fetchReviews()
-    .then(res => setContent(res))
+    fetchReviews().then(res => setContent(res))
   }, [])
+
+  
   return (
     <div>
       <h2>Reviews</h2>

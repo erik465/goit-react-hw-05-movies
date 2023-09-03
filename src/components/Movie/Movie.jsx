@@ -28,10 +28,7 @@ const Movie = () => {
   }
 
   useEffect(() => {
-    console.log('Movie PAGE ')
-    getMovieDetails()
-    .then(res => {
-        setCurrentMovie(res)
+    getMovieDetails().then(res => {setCurrentMovie(res)
     })
   },[])
 
