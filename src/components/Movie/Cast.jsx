@@ -41,7 +41,7 @@ const Cast = () => {
         return(
         <StyledCastMember key={actor.credit_id}>
           <b>{actor.character}</b>
-          <img src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt='actor image'/>
+          <img src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt='actor '/>
           <p>{actor.original_name}</p>
         </StyledCastMember>)
       })}

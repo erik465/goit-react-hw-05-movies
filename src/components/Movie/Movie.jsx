@@ -38,7 +38,7 @@ const Movie = () => {
   return (
     <div>
         <StyledContainer>
-            <img src={`https://image.tmdb.org/t/p/w500${currentMovie.poster_path}`} alt='movie image'/>
+            <img src={`https://image.tmdb.org/t/p/w500${currentMovie.poster_path}`} alt='movie '/>
             <MovieInfo>
                 <h2>{currentMovie.title}</h2>
                 <p>{currentMovie.overview}</p>
