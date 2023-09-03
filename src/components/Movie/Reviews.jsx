@@ -9,7 +9,7 @@ axios.defaults.headers.common = {'Authorization': `bearer eyJhbGciOiJIUzI1NiJ9.e
 const Reviews = () => {
   const {movieId} = useParams()
   const [content, setContent] = useState([])
-  const fetchReviews = async () =>{
+  async function fetchReviews(){
     const res = await axios.get(`/movie/${movieId}/reviews`)
     console.log(res.data.results)
     return res.data.results
