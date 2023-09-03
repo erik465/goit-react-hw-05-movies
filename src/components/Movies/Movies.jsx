@@ -32,7 +32,7 @@ const Movies = () => {
             <Link key={movie.id} to={`/movies/${movie.id}`}>
             <li >
                 <p>{movie.title}</p>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}` }alt='movie' />
             </li>
             </Link>
             )

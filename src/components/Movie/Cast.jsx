@@ -29,10 +29,12 @@ const Cast = () => {
     console.log(res.data.cast)
     return res.data.cast
   }
+
   useEffect(()=>{
-    fetchCast()
-    .then(res => setContent(res))
+    fetchCast().then(res => setContent(res))
   }, [])
+
+
   return (
     <div>
       <h2>Cast</h2>
