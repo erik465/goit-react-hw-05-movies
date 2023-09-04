@@ -16,7 +16,6 @@ const Reviews = () => {
 
      const fetchReviews =  async() => {
       const res = await axios.get(`/movie/${movieId}/reviews`)
-      console.log(res.data.results)
       return res.data.results
     }
 

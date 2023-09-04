@@ -19,7 +19,6 @@ const Movie = () => {
 
     const getMovieDetails = async () => {
       const res = await axios.get(`movie/${movieId}`)
-      console.log(res.data)
       return res.data
     }
 
