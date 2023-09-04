@@ -3,17 +3,7 @@ import { Link, Outlet, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 
-import styled from 'styled-components'
-
-const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-`
-
-const MovieInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-`
+import { StyledContainer, MovieInfo } from './Movie.styled'
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3'
 axios.defaults.headers.common = {'Authorization': `bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTQyNTU5ZTJiYWNiZGFmNDM5MTA5ZGUwNGJiZmZlYyIsInN1YiI6IjY0ZjQ1ZGM1OWU0NTg2MDExZGU2OTAyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-wH1Q4duwruYZ20I3KeAqsuiKf4R39syfbHVwVM9DM`}
