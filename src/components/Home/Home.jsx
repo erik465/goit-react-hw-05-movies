@@ -27,7 +27,7 @@ const Home = () => {
         <ul>
           {movies !== null ? movies.map(movie => {
             return (
-            <Link key={movie.id} to={`/movies/${movie.id}`}>  
+            <Link key={movie.id} to={`/movies/${movie.id}`} state={{ from: "/" }}>  
             <li >
                 <p>{movie.title}</p>
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt='movie ' />

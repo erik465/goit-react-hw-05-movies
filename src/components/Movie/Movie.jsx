@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link, Outlet, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useLocation } from 'react-router-dom'
 
 import styled from 'styled-components'
 
@@ -20,8 +21,9 @@ axios.defaults.headers.common = {'Authorization': `bearer eyJhbGciOiJIUzI1NiJ9.e
 const Movie = () => {
   const {movieId} = useParams()
   const [currentMovie, setCurrentMovie] = useState({})
-
+  const location = useLocation();
   
+  const backLinkHref = location.state?.from ?? "/";
 
   useEffect(() => {
 
@@ -31,12 +33,13 @@ const Movie = () => {
       return res.data
     }
 
-    getMovieDetails().then(res => {setCurrentMovie(res)
-    })
+    getMovieDetails().then(res => {setCurrentMovie(res)})
+    console.log(location)
   },[movieId])
 
   return (
     <div>
+        <Link to={backLinkHref}> {'<-'} Go Back</Link>
         <StyledContainer>
             <img src={`https://image.tmdb.org/t/p/w500${currentMovie.poster_path}`} alt='movie '/>
             <MovieInfo>
