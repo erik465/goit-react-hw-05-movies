@@ -34,7 +34,6 @@ const Movie = () => {
     }
 
     getMovieDetails().then(res => {setCurrentMovie(res)})
-    console.log(location)
   },[movieId])
 
   return (
