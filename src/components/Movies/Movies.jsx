@@ -33,7 +33,7 @@ const Movies = () => {
         e.preventDefault()
         setSearchParams({query : e.target.firstChild.value})
     }}>
-        <input type='text' placeholder='Search Movie...' value={searchParams.get('query') ? searchParams.get('query') : ''}/>
+        <input type='text' placeholder='Search Movie...' />
         <input type="submit" value='Search'/>
       </form>
       <ul>
