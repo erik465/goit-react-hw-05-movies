@@ -22,6 +22,7 @@ const Movie = () => {
       return res.data
     }
 
+
     getMovieDetails().then(res => {setCurrentMovie(res)})
   },[movieId])
 
@@ -36,8 +37,8 @@ const Movie = () => {
                 <p>Time: {currentMovie.runtime} mins.</p>
                 <p>Release date: {currentMovie.release_date}</p>
                 <p>Budget : {currentMovie.budget}$</p>
-                <Link to={`/movies/${currentMovie.id}/cast`}>Cast</Link>
-                <Link to={`/movies/${currentMovie.id}/reviews`}>Reviews</Link>
+                <Link to={`/movies/${currentMovie.id}/cast`} state={{from : backLinkHref}}>Cast</Link>
+                <Link to={`/movies/${currentMovie.id}/reviews`} state={{from : backLinkHref}}>Reviews</Link>
             </MovieInfo>
         </StyledContainer>
         
