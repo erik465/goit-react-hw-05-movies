@@ -21,8 +21,6 @@ const Movie = () => {
       const res = await axios.get(`movie/${movieId}`)
       return res.data
     }
-
-
     getMovieDetails().then(res => {setCurrentMovie(res)})
   },[movieId])
 
